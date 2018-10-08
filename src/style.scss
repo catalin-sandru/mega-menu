@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+.mega-menu {
+  display: flex;
+  list-style-type: none;
+  width: 100%;
+  align-items: stretch;
+  justify-content: stretch;
+
+  & > div {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+.mega-menu__top-link {
+  padding: 0.5rem;
+  text-decoration: none;
+  background-color: lightblue;
+  display: block;
+  text-align: center;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.mega-menu__drop-down {
+  position: absolute;
+  display: none;
+  top: 34px;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background-color: antiquewhite;
+}
+
+.mega-menu__top-link:hover + .mega-menu__drop-down {
+  display: block;
+}
