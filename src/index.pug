@@ -10,7 +10,13 @@ html(lang="en")
     //- pre=JSON.stringify(data, null, 2)
     .mega-menu
       each menu in data.menu
-        div
+        .mega-menu__top-item
           a.mega-menu__top-link(href=`${menu.id}`)=menu.label
           .mega-menu__drop-down
-            p dfsfas
+            h2=menu.label
+            ul
+              each menu2 in menu.secondMenuItemList
+                li.mega-menu__drop2
+                  span=menu2.label
+                  .mega-menu__drop-down2
+                    h3=menu2.label
