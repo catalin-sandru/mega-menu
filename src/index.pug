@@ -20,3 +20,7 @@ html(lang="en")
                   span=menu2.label
                   .mega-menu__drop-down2
                     h3=menu2.label
+                    ul.mega-menu__list2
+                      each item in menu2.list1
+                        li.last-li
+                          a(href=item.link, class=item.bold?'bold-link':'')=item.label
