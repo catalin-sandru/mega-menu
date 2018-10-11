@@ -9,18 +9,47 @@ html(lang="en")
   body
     //- pre=JSON.stringify(data, null, 2)
     .mega-menu
-      each menu in data.menu
+      each menu, key1 in data.menu
         .mega-menu__top-item
           a.mega-menu__top-link(href=`${menu.id}`)=menu.label
           .mega-menu__drop-down
             h2=menu.label
             ul
-              each menu2 in menu.secondMenuItemList
-                li.mega-menu__drop2
+              each menu2, key2 in menu.secondMenuItemList
+                li.mega-menu__drop2(data-key1=key1, data-key2=key2)
                   span=menu2.label
                   .mega-menu__drop-down2
                     h3=menu2.label
-                    ul.mega-menu__list2
-                      each item in menu2.list1
-                        li.last-li
-                          a(href=item.link, class=item.bold?'bold-link':'')=item.label
+                    .list
+                      ul.list-1
+                        each item in menu2.list1
+                          //- li.last-li
+                          //-   a(href=item.link, class=item.bold?'bold-link':'')=item.label
+                      ul.list-1
+                        each item in menu2.list2
+                          //- li.last-li
+                          //-   a(href=item.link, class=item.bold?'bold-link':'')=item.label
+    script.
+      let menu = !{JSON.stringify(data.menu)}
+      document.querySelectorAll('.mega-menu__drop2')
+        .forEach(mm => mm.addEventListener('mouseover', elem => {
+          const { key1, key2 } = elem.currentTarget.dataset;
+          let list1 = mm.querySelector('.mega-menu__drop-down2 .list-1')
+          //- console.log(key1, key2, list1);
+          list1.innerHtml = '';
+
+          if (menu[key1].secondMenuItemList[key2].list1) {
+              menu[key1].secondMenuItemList[key2].list1.map(data => {
+                let liItem = document.createElement('li');
+                liItem.className = 'last-li';
+                let atag = document.createElement('a');
+                atag.href = data.link;
+                atag.innerText = data.label;
+                atag.className = data.bold ? 'bold-link':''
+                liItem.appendChild(atag);
+                list1.appendChild(liItem);
+          //- console.log(elem.target);
+          //- console.log('**************');
+              })
+          }
+        }))
