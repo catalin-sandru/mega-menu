@@ -25,8 +25,8 @@ html(lang="en")
                         each item in menu2.list1
                           //- li.last-li
                           //- a(href=item.link, class=item.bold?'bold-link':'')=item.label
-                      //- ul.list-2
-                      //-   each item in menu2.list2
+                      ul.list-2
+                        each item in menu2.list2
                           //- li.last-li
                           //-   a(href=item.link, class=item.bold?'bold-link':'')=item.label
     script.
@@ -36,7 +36,7 @@ html(lang="en")
           const { key1, key2 } = elem.currentTarget.dataset;
           let list1 = mm.querySelector('.mega-menu__drop-down2 .list-1')
           //- console.log(key1, key2, list1);
-          list1.innerHtml = '';
+          list1.innerHTML = '';
 
           if (menu[key1].secondMenuItemList[key2].list1) {
               menu[key1].secondMenuItemList[key2].list1.map(data => {
@@ -48,6 +48,7 @@ html(lang="en")
                 atag.className = data.bold ? 'bold-link':''
                 liItem.appendChild(atag);
                 list1.appendChild(liItem);
+                //- list1.innerHTML = '';
           //- console.log(elem.target);
           //- console.log('**************');
               })
