@@ -35,8 +35,10 @@ html(lang="en")
         .forEach(mm => mm.addEventListener('mouseover', elem => {
           const { key1, key2 } = elem.currentTarget.dataset;
           let list1 = mm.querySelector('.mega-menu__drop-down2 .list-1')
-          //- console.log(key1, key2, list1);
+          let list2 = mm.querySelector('.mega-menu__drop-down2 .list-2')
+          //- console.log(key1, key2, list1, list2);
           list1.innerHTML = '';
+          list2.innerHTML = '';
 
           if (menu[key1].secondMenuItemList[key2].list1) {
               menu[key1].secondMenuItemList[key2].list1.map(data => {
@@ -48,9 +50,6 @@ html(lang="en")
                 atag.className = data.bold ? 'bold-link':''
                 liItem.appendChild(atag);
                 list1.appendChild(liItem);
-                //- list1.innerHTML = '';
-          //- console.log(elem.target);
-          //- console.log('**************');
               })
           }
-        }))
+      }))
