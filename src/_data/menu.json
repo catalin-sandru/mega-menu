@@ -28,23 +28,23 @@
         "link": ""
       }],
       "list2": [{
-        "label": "third Title 1",
+        "label": "Third Title 1",
         "bold": true,
         "link": ""
       }, {
-        "label": "Second Title 2",
+        "label": "Third Title 2",
         "bold": false,
         "link": ""
       }, {
-        "label": "Second Title 3",
+        "label": "Third Title 3",
         "bold": false,
         "link": ""
       }, {
-        "label": "Second Title 4",
+        "label": "Third Title 4",
         "bold": false,
         "link": ""
       }, {
-        "label": "Second Title 5",
+        "label": "Third Title 5",
         "bold": false,
         "link": ""
       }]
